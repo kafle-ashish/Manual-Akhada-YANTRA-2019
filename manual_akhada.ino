@@ -1,3 +1,6 @@
+
+
+
 #define BRAKE 0
 #define CW    1
 #define CCW   2
@@ -102,6 +105,24 @@ void Reverse()
   Serial.println("Reverse");
   usMotor_Status = CCW;
   motorGo(MOTOR_1, usMotor_Status, usSpeed);
+  motorGo(MOTOR_2, usMotor_Status, usSpeed);
+}
+
+void Left()
+{
+  Serial.println("Left");
+  usMotor_Status = CW;
+  motorGo(MOTOR_1, usMotor_Status, usSpeed);
+  usMotor_Status = CCW;
+  motorGo(MOTOR_2, usMotor_Status, usSpeed);
+}
+
+void Right()
+{
+  Serial.println("Right");
+  usMotor_Status = CCW;
+  motorGo(MOTOR_1, usMotor_Status, usSpeed);
+  usMotor_Status = CW;
   motorGo(MOTOR_2, usMotor_Status, usSpeed);
 }
 
